@@ -114,6 +114,43 @@ nav{
     display: inline-block;
    }
 
+   /* menu Mobile styles*/
+
+   .mobile-menu{
+    padding: 24px;
+    position: absolute;
+    top: 60px;
+}
+
+.mobile-menu a{
+   text-decoration: none;
+   color: black;
+   font-weight: bold;
+   
+}
+.mobile-menu ul{
+  padding: 0;
+  margin: 24px 0 0 ;
+  list-style: none;
+
+}
+.mobile-menu ul li{
+ 
+    margin-bottom: 24px;
+}
+.email{
+    font-size: 12px;
+    font-weight: 300 !important;
+}
+.mobile-menu ul:nth-child(1){
+border-bottom: 1px solid #c7c7c7;
+}
+
+.sing-out{
+    font-size: small;
+    color: #acd982 !important;
+}
+
    /* medias for mobile*/
 
 @media (max-width: 640px) {
@@ -123,9 +160,15 @@ nav{
     .navbar-left ul{
         display: none;
     }
-    .navbar-email{
+    .navbar-email, .desktop-menu{
+        display: none;
+    }    
+}
+
+/*medias for desktop*/
+@media(min-width:641px){
+
+    .mobile-menu{
         display: none;
     }
-
-    
 }
