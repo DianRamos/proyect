@@ -1,0 +1,45 @@
+.my-order{
+    width: 100%;
+    height: 100 vh;
+    display: grid;
+    place-items: center;
+}
+.title{
+    font-size: larger;
+    margin-bottom: 40px;
+}
+.my-order-content{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 300px;
+}
+.order{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.order p:nth-child(1){
+    display: flex;
+    flex-direction: column;
+}
+.my-order span:nth-child(1){
+    font-size: medium;
+    font-weight: bold;
+}
+.my-order span:nth-child(2){
+    font-size: small;
+    color: #c7c7c7;
+
+}
+.order p:nth-child(2){
+    text-align: end;
+    font-weight: 700;
+}
+.my-order-container{
+    display: flex;
+    flex-direction: column;
+}
+
+
