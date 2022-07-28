@@ -1,15 +1,18 @@
 const navBar= document.querySelector(".navbar-email");
 const desktopMenu = document.querySelector(".desktop-menu ");
 const menuIcon = document.querySelector(".menu");
+const iconCloseDetail = document.querySelector(".product-detail-close");
 const mobileMenu = document.querySelector(".mobile-menu");
 const shopingCartIcon = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.querySelector("#shoppingCart-Container");
 const cardsContainer = document.querySelector(".cards-container");
+const productDetailContainer = document.querySelector("#productDetail");
 
 
 navBar.addEventListener("click",toggleDesktopMenu);
 menuIcon.addEventListener("click",toogleMobileMenu);
 shopingCartIcon.addEventListener("click",toogleShoppingCartContainer);
+iconCloseDetail.addEventListener("click",closeProductDetail);
 
 
 
@@ -27,12 +30,11 @@ function toggleDesktopMenu() {
 
 function toogleMobileMenu() {
     const isMyOrderListClose = shoppingCartContainer.classList.contains('inactive');
-if (!isMyOrderListClose) {
-    shoppingCartContainer.classList.add("inactive");
-    
-}
-    mobileMenu.classList.toggle("inactive");
-    
+    if (!isMyOrderListClose) {
+      shoppingCartContainer.classList.add("inactive");
+    }
+    closeProductDetail();
+    mobileMenu.classList.toggle("inactive");   
 }
 
 
@@ -44,10 +46,26 @@ function toogleShoppingCartContainer() {
         mobileMenu.classList.add("inactive");
    
     }
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive');
+    if (!isProductDetailClose) {
+       
+        productDetailContainer.classList.add("inactive");
+   
+    }
     shoppingCartContainer.classList.toggle("inactive");
 }
 
+function showProductDetail(){
+    shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetail() {
+    productDetailContainer.classList.add('inactive');
+}
+
 const productList = [];
+
 productList.push({
     name: "Car",
     price:120,
@@ -90,6 +108,7 @@ productList.push({
 
 },
 );
+
 function renderProducts(arr){
     for(product of arr){const productCard = document.createElement('div');
     
@@ -97,6 +116,7 @@ function renderProducts(arr){
 
     const productImg = document.createElement('img');
     productImg.setAttribute('src',product.image);
+    productImg.addEventListener('click',showProductDetail);
 
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
@@ -127,4 +147,5 @@ function renderProducts(arr){
     cardsContainer.appendChild(productCard);
 }
 }
+
 renderProducts(productList);
